@@ -1,26 +1,19 @@
 const connection = require("../config/database");
+const {getAllUsers} = require('../services/CRUDService')
 
-const getHomePage = (req, res) => {
-  return res.render("homePage.ejs");
+const getHomePage = async (req, res) => {
+  let results = await getAllUsers();
+  return res.render("homePage.ejs",{listUser: results});
 };
 const getSample = (req, res) => {
-  res.render("sample.ejs");
+  res.render("sample.e  njs");
 };
-const postCreateUser =  async (req, res) => {
+const postCreateUser = async (req, res) => {
   let { name, email, city } = req.body;
-  // connection.query(
-  //   "INSERT INTO Users (name, email, city) VALUES (?, ?, ?)",
-  //   [name, email, city],
-  //   function (err, results) {
-  //     if (err) {
-  //       res.send("create user failed");
-  //     } else {
-        
-  //     }
-  //   }
-  // );
   const [result, fields] = await connection.query(
-      "INSERT INTO Users (name, email, city) VALUES (?, ?, ?)",[name, email, city]);
+    "INSERT INTO Users (name, email, city) VALUES (?, ?, ?)",
+    [name, email, city]
+  );
   res.send("create user successfully");
 };
 

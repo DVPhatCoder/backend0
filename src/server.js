@@ -27,7 +27,6 @@ app.use('/',webRoutes)
 const connectionDB = async () => {
   try {
     const [results] = await connection.query('SELECT * FROM Users');
-    console.log(">> Kết nối thành công. Dữ liệu Users:", results);
   } catch (error) {
     console.error("Lỗi khi kết nối MySQL:", error.message);
   }
