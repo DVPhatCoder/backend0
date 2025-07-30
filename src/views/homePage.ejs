@@ -13,25 +13,26 @@
     </div>
     <div class="table-container">
       <table id="customers">
-        <div class="title-list-user">List User</div>
+        <div class="title-list-user">List Users</div>
         <tr>
           <th>ID</th>
           <th>Email</th>
           <th>Name</th>
           <th>City</th>
-          <th>Action</th> 
-          
+          <th>Action</th>
         </tr>
-        <tr>
-          <td><%= listUser.id %></td>
-          <td><%= listUser.email %></td>
-          <td>France</td>
-          <td>France</td>
+        <% listUsers.forEach(function(user) { %>
+     <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= user.city %></td>
           <td>
-          <button>Edit</button>
-          <button>delete</button>
-        </td>
+            <button>Edit</button>
+            <button>delete</button>
+          </td>
         </tr>
+ <% }); %> 
       </table>
     </div>
   </body>
