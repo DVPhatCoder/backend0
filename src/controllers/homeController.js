@@ -20,9 +20,15 @@ const postCreateUser = async (req, res) => {
 const getCreateUser = (req, res) => {
   res.render("createUser.ejs");
 };
+const getUpdateUser= (req,res)=>{
+  res.render("edit.ejs")
+
+};
+
 module.exports = {
   getHomePage,
   getSample,
   postCreateUser,
   getCreateUser,
+  getUpdateUser
 };
