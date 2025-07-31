@@ -10,8 +10,20 @@ const getUpdateUser = async (userId)=>{
    let user = result && result.length>0 ? result[0]: {}
    return user
 }
+
 const updeateUserById = async(name, email, city, userId)=>{
     const [result, fields] = await connection.query(
+    `
+    UPDATE Users 
+    SET name = ?, email = ?, city = ?
+    WHERE id = ?
+    `    
+    ,
+    [name, email, city, userId]
+  );
+}
+const getdeleteUser = async(name, email, city, userId)=>{
+      const [result, fields] = await connection.query(
     `
     UPDATE Users 
     SET name = ?, email = ?, city = ?
@@ -24,6 +36,6 @@ const updeateUserById = async(name, email, city, userId)=>{
 module.exports = {
     getAllUsers,
     getUpdateUser,
-    updeateUserById
-    
+    updeateUserById,
+    getdeleteUser
 }

@@ -88,3 +88,18 @@
   .d-none{
     display: none;
   }
+  .optionl-button{
+    display: flex;
+  }
+  .button-cancel{
+    margin: 10px;
+  }
+  .button-cancel button{
+    width: 50px;
+    height: 30px;
+    background-color: #C0C0C0;
+    color: white;
+    border-radius: 8px;
+    border: 1px solid white;
+    cursor: pointer;
+  }
